@@ -46,7 +46,7 @@
     <Compile Include="COMMAND\CCommandEmp.cs" />
     <Compile Include="COMMON\CAttach.cs" />
     <Compile Include="COMMON\CEmp.cs" />
-    <Compile Include="COMMON\CTree.cs" />
+    <Compile Include="COMMON\CCode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

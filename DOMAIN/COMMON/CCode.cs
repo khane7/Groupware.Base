@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 
-public class CTree
+public class CCode
 {
 	public string tree_type { get; set; }
 	public string tree_code { get; set; }

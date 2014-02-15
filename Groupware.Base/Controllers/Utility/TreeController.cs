@@ -17,10 +17,10 @@ namespace Groupware.Base.Controllers.Utility
 
 		public ActionResult StatusList(string tree_type, int tree_level)
 		{
-			IList<CTree> listTree = new List<CTree>();
+			IList<CCode> listTree = new List<CCode>();
 			try
 			{
-				DaoTree daoTree = new DaoTree();
+				DaoCode daoTree = new DaoCode();
 				listTree = daoTree.getTreeList(tree_type, 0, null, tree_level);
 				ViewBag.listTree = listTree;
 			}
@@ -35,7 +35,7 @@ namespace Groupware.Base.Controllers.Utility
 
 		public ActionResult TreePreview(string tree_type)
 		{
-			IList<CTree> listTree = new List<CTree>();
+			IList<CCode> listTree = new List<CCode>();
 			try
 			{
 				if (tree_type == null || tree_type == "")
@@ -43,7 +43,7 @@ namespace Groupware.Base.Controllers.Utility
 					tree_type = "leftmenu";
 				}
 
-				DaoTree daoTree = new DaoTree();
+				DaoCode daoTree = new DaoCode();
 				listTree = daoTree.getTreeList(tree_type, 0, null, 0);
 				ViewBag.listTree = listTree;
 				ViewBag.listTreeType = daoTree.getTreeTypeList();
@@ -58,11 +58,11 @@ namespace Groupware.Base.Controllers.Utility
 
 		public JsonResult getTreeOne(int tree_code)
 		{
-			CTree tree = new CTree();
+			CCode tree = new CCode();
 			JsonResult json = new JsonResult();
 			try
 			{
-				DaoTree daoTree = new DaoTree();
+				DaoCode daoTree = new DaoCode();
 				
 				tree = daoTree.getTreeOne(tree_code);
 				json.Data = tree;
@@ -82,10 +82,10 @@ namespace Groupware.Base.Controllers.Utility
 			JsonResult json = new JsonResult();
 			try
 			{
-				CTree tree = new CTree();
+				CCode tree = new CCode();
 
 
-				DaoTree daoTree = new DaoTree();
+				DaoCode daoTree = new DaoCode();
 
 				//tree = daoTree.getTreeOne(tree_code);
 				json.Data = tree;

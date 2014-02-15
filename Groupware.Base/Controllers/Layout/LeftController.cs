@@ -14,10 +14,10 @@ namespace Groupware.Base.Controllers.Layout
 
         public ActionResult Index()
         {
-			IList<CTree> listTree = new List<CTree>();
+			IList<CCode> listTree = new List<CCode>();
 			try
 			{
-				DaoTree daoTree = new DaoTree();
+				DaoCode daoTree = new DaoCode();
 				listTree = daoTree.getTreeList("leftmenu", 0, null, 0);
 				ViewBag.listTree = listTree;
 			}

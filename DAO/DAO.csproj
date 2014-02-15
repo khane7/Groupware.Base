@@ -62,7 +62,7 @@
     <Compile Include="Maps\CMS\DaoCms.cs" />
     <Compile Include="Maps\COMMAND\DaoCommand.cs" />
     <Compile Include="Maps\COMMON\DaoEmp.cs" />
-    <Compile Include="Maps\COMMON\DaoTree.cs" />
+    <Compile Include="Maps\COMMON\DaoCode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -95,7 +95,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Maps\COMMON\tb_tree.xml">
+    <EmbeddedResource Include="Maps\COMMON\tb_code.xml">
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>

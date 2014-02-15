@@ -12,7 +12,7 @@
 				tb_command AS A
 				LEFT JOIN tb_command_emp AS B ON (A.idx = B.p_idx)
 				LEFT JOIN tb_comment AS C ON ( A.tb_name = C.tb_name AND A.idx = C.tb_idx)
-				LEFT JOIN tb_tree AS T ON ( T.tree_type = 'status' AND T.tree_value = A.ord_type)
+				LEFT JOIN tb_code AS T ON ( T.tree_type = 'status' AND T.tree_value = A.ord_type)
 			<dynamic prepend="WHERE">
 			
 				<isNotNull property="search_value">
@@ -41,7 +41,7 @@
 				tb_command AS A
 				LEFT JOIN tb_command_emp AS B ON (A.idx = B.p_idx)
 				LEFT JOIN tb_comment AS C ON ( A.tb_name = C.tb_name AND A.idx = C.tb_idx)
-				LEFT JOIN tb_tree AS T ON ( T.tree_type = 'status' AND T.tree_value = A.ord_type)
+				LEFT JOIN tb_code AS T ON ( T.tree_type = 'status' AND T.tree_value = A.ord_type)
 			<dynamic prepend="WHERE">
 			
 				<isNotNull property="search_value">
@@ -63,7 +63,7 @@
 				T.*
 			FROM
 				tb_command AS A
-				LEFT JOIN tb_tree AS T ON ( T.tree_type = 'status' AND T.tree_value = A.ord_type)
+				LEFT JOIN tb_code AS T ON ( T.tree_type = 'status' AND T.tree_value = A.ord_type)
 			WHERE
 				A.idx = #idx#
 			ORDER BY

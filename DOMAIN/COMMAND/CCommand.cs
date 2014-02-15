@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class CCommand : CTree
+public class CCommand : CCode
 {
 	public int idx { get; set; }
 	public string tb_name { get; set; }

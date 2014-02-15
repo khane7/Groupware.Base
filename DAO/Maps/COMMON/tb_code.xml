@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 
-<sqlMap namespace="TREE" xmlns="http://ibatis.apache.org/mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+<sqlMap namespace="CODE" xmlns="http://ibatis.apache.org/mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
 
 	<statements>
 
-		<select id="TREE.select_tree_list" resultClass="CTree" parameterClass="System.Collections.Specialized.HybridDictionary">
+		<select id="CODE.select_code_list" resultClass="CCode" parameterClass="System.Collections.Specialized.HybridDictionary">
 			SELECT
 				*
 			FROM
-				tb_tree
+				tb_code
 			<dynamic prepend="WHERE">
 			
 				<isNotNull prepend="AND" property="tree_type">
@@ -28,34 +28,34 @@
 				tree_order ASC
 		</select>
 		
-		<select id="TREE.select_tree_type_list" resultClass="System.String" remapResults="true">
+		<select id="CODE.select_code_type_list" resultClass="System.String" remapResults="true">
 			SELECT
 				DISTINCT(tree_type)
 			FROM
-				tb_tree
+				tb_code
 		</select>
 
-		<select id="TREE.select_tree_one" resultClass="CTree" parameterClass="System.Int32">
+		<select id="CODE.select_code_one" resultClass="CCode" parameterClass="System.Int32">
 			SELECT
 				*
 			FROM
-				tb_tree
+				tb_code
 			WHERE
 				tree_code = #tree_code#
 		</select>
 
 		
-		<insert id="TREE.insert_tree" parameterClass="CTree">
+		<insert id="CODE.insert_code" parameterClass="CCode">
 			
 		</insert>
 
 
-		<update id="TREE.update_tree" parameterClass="System.Int32">
+		<update id="CODE.update_code" parameterClass="System.Int32">
 			
 		</update>
 
 		
-		<delete id="TREE.delete_tree" parameterClass="System.Int32">
+		<delete id="CODE.delete_code" parameterClass="System.Int32">
 			
 		</delete>
 		
