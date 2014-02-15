@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<sqlMap namespace="TREE" xmlns="http://ibatis.apache.org/mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+
+	<statements>
+
+		<select id="TREE.select_tree_list" resultClass="CTree" parameterClass="System.Collections.Specialized.HybridDictionary">
+			SELECT
+				*
+			FROM
+				tb_tree
+			<dynamic prepend="WHERE">
+			
+				<isNotNull prepend="AND" property="tree_type">
+					tree_type = #tree_type#
+				</isNotNull>
+				<isNotEqual prepend="AND" property="tree_code" compareValue="0">
+					tree_code = #tree_code#
+				</isNotEqual>
+				<isNotNull prepend="AND" property="emp_no">
+					emp_no = #emp_no#
+				</isNotNull>
+				<isNotNull prepend="AND" property="tree_level">
+					tree_level  >= #tree_level#
+				</isNotNull>
+			</dynamic>
+			ORDER BY
+				tree_order ASC
+		</select>
+		
+		<select id="TREE.select_tree_type_list" resultClass="System.String" remapResults="true">
+			SELECT
+				DISTINCT(tree_type)
+			FROM
+				tb_tree
+		</select>
+
+		<select id="TREE.select_tree_one" resultClass="CTree" parameterClass="System.Int32">
+			SELECT
+				*
+			FROM
+				tb_tree
+			WHERE
+				tree_code = #tree_code#
+		</select>
+
+		
+		<insert id="TREE.insert_tree" parameterClass="CTree">
+			
+		</insert>
+
+
+		<update id="TREE.update_tree" parameterClass="System.Int32">
+			
+		</update>
+
+		
+		<delete id="TREE.delete_tree" parameterClass="System.Int32">
+			
+		</delete>
+		
+	</statements>
+</sqlMap>

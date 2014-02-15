@@ -1,0 +1,90 @@
+﻿@{
+	ViewBag.PanelTitle = "Tree Preview";
+}
+<script type="text/javascript">
+
+	$(document).ready(function () {
+
+		$('#sel-tree_type').val((getParameter("tree_type") == "") ? "leftmenu" : getParameter("tree_type"));
+		$('#sel-tree_type').change(function () {
+			goPage("./?tree_type=" + $(this).val());
+		});
+
+	});
+
+</script>
+
+<!-- /.panel -->
+<div class="panel panel-default">
+	<div class="panel-heading">
+		@ViewBag.PanelTitle
+	</div>
+	<!-- /.panel-heading -->
+	<div class="panel-body">
+
+		<nav class="navbar-default navbar-static-side" role="navigation" style="position:relative;">
+			<span class="sidebar-collapse">
+				<ul class="nav" id="side-menu">
+
+					<div class="form-group">
+						<label>tree type</label>
+						<select class="form-control" id="sel-tree_type">
+							@foreach (var item in ViewBag.listTreeType)
+							{
+								<option value="@item">@item</option>
+							}
+						</select>
+					</div>
+
+
+					@{
+						var status = 0;
+						var prev_level = 1;
+						foreach (var item in ViewBag.listTree)
+						{
+							var curr_level = item.tree_level;
+
+							if (prev_level < curr_level)
+							{
+								if (item.tree_level == 2)
+								{
+									@Html.Raw("<ul class=\"nav nav-second-level in\">");
+								}
+								if (item.tree_level == 3)
+								{
+									@Html.Raw("<ul class=\"nav nav-third-level in\">");
+								}
+							}
+							else if (prev_level > curr_level)
+							{
+								@Html.Raw("</li>");
+								@Html.Raw("</ul>");
+								@Html.Raw("</li>");
+							}
+							else if (status != 0 && prev_level == curr_level)
+							{
+								@Html.Raw("</li>");
+							}
+							@Html.Raw("<li>");
+									<a href="javascript:setTreeCode('@item.tree_code');"><i class="fa @item.html_class fa-fw"></i> @item.tree_key
+										@if ( @item.tree_value == "#") {
+											<span class="fa arrow"></span>
+										}
+									</a>
+							prev_level = curr_level;
+							status++;
+						}
+						@Html.Raw("</li>");
+					}
+
+				</ul>
+				<!-- /#side-menu -->
+			</span>
+			<!-- /.sidebar-collapse -->
+		</nav>
+		<!-- /.navbar-static-side -->
+
+	</div>
+	<!-- /.panel-body -->
+</div>
+<!-- /.panel -->

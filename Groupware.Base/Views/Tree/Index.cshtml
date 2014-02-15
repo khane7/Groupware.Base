@@ -1,0 +1,100 @@
+﻿@{
+    ViewBag.Title = "Code Manager";
+	ViewBag.PanelTitle = "Tree Code Detail";
+}
+
+<script type="text/javascript">
+
+	$(document).ready(function () {
+		$('#btn-add').click(function () {
+			$('#tree_code').val("");
+			$('#tree_level').val("");
+			$('#tree_key').val("");
+			$('#tree_value').val("");
+			$('#tree_order').val("");
+			$('#html_class').val("");
+		});
+
+		$('#btn-save').click(function () {
+			goProcess("/Tree/setTreeOne", "frm", "goPage('./');");
+		});
+
+		$('#btn-delete').click(function () {
+			showAlert("Confirm", "Delete????", true, "alert('ck');");
+		});
+	});
+
+	var setTreeCode = function ( tree_code ) {
+		goSimpleProcess("/Tree/getTreeOne", { "tree_code": tree_code }, "getTreeCode(data);" );
+	}
+	var getTreeCode = function (data) {
+		$('#tree_code').val(data.tree_code);
+		$('#tree_level').val(data.tree_level);
+		$('#tree_key').val(data.tree_key);
+		$('#tree_value').val(data.tree_value);
+		$('#tree_order').val(data.tree_order);
+		$('#html_class').val(data.html_class);
+	}
+
+</script>
+
+<div class="row">
+    <div class="col-lg-4">
+
+		@{
+			Html.RenderAction("TreePreview", "Tree");
+		}
+		
+    </div>
+
+	<div class="col-lg-8">
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				@ViewBag.PanelTitle
+			</div>
+			<!-- /.panel-heading -->
+			<div class="panel-body">
+
+				<form role="form" id="frm" name="frm">
+                    <fieldset>
+                        <div class="form-group">
+							<label>tree_code</label>
+							<input class="form-control" placeholder="tree_code" id="tree_code" name="tree_code"  value="" disabled="">
+						</div>
+						<div class="form-group">
+							<label>tree_level</label>
+							<input class="form-control" placeholder="tree_level" id="tree_level" name="tree_level"  value="" disabled="">
+						</div>
+						<div class="form-group">
+							<label>tree_key</label>
+							<input class="form-control" placeholder="tree_key" id="tree_key" name="tree_key"  value="" >
+						</div>
+						<div class="form-group">
+							<label>tree_value</label>
+							<input class="form-control" placeholder="tree_value" id="tree_value" name="tree_value"  value="" >
+						</div>
+						<div class="form-group">
+							<label>tree_order</label>
+							<input class="form-control" placeholder="tree_order" id="tree_order" name="tree_order"  value="" disabled="">
+						</div>
+						<div class="form-group">
+							<label>html_class</label>
+							<input class="form-control" placeholder="html_class" id="html_class" name="html_class"  value="" >
+						</div>
+						<button class="btn btn-success" type="button" id="btn-add">ADD</button>
+						<button class="btn btn-primary" type="button" id="btn-save">SAVE</button>
+						<button class="btn btn-danger" type="button" id="btn-delete">DELETE</button>
+                    </fieldset>
+                </form>
+
+			</div>
+			<!-- /.panel-body -->
+		</div>
+		<!-- /.panel -->
+
+	</div>
+
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
