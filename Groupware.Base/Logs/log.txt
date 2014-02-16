@@ -3072,3 +3072,172 @@ fdsafdfdsafds], ?param7=[reg_ip,::1], ?param8=[hit,0], ?param9=[reg_date,2014-02
 2014-02-15 22:48:20,986 - Statement Id: [CODE.select_code_list] Types: [?param0=[String, System.String], ?param1=[Int32, System.Int32]]
 2014-02-15 22:48:20,987 - Open Connection "20974239" to "MySQL, MySQL provider 6.6.5.0".
 2014-02-15 22:48:20,988 - Close Connection "20974239" to "MySQL, MySQL provider 6.6.5.0".
+2014-02-16 00:03:42,878 - Statement Id: [EMP.insert_emp] Prepared SQL: [INSERT INTO     tb_emp     (      id,      name,      passwd,      email,      reg_date,      mod_date,      is_used,      is_admin     )     VALUES     (       ?param0 ,       ?param1 ,       ?param2 ,       ?param3 ,       ?param4 ,       ?param5 ,       ?param6 ,       ?param7      )]
+2014-02-16 00:03:42,886 - Statement Id: [EMP.update_emp] Prepared SQL: [UPDATE      tb_emp     SET      name =  ?param0 ,      passwd =  ?param1 ,      email =  ?param2 ,      reg_date =  ?param3 ,      mod_date =  ?param4 ,      is_used =  ?param5 ,      is_admin =  ?param6      WHERE      idx =  ?param7]
+2014-02-16 00:03:42,887 - Statement Id: [EMP.delete_emp] Prepared SQL: [DELETE     FROM      tb_emp     WHERE      idx =  ?param0]
+2014-02-16 00:03:42,888 - Statement Id: [CODE.select_code_type_list] Prepared SQL: [SELECT      DISTINCT(tree_type)     FROM      tb_code]
+2014-02-16 00:03:42,888 - Statement Id: [CODE.select_code_one] Prepared SQL: [SELECT      *     FROM      tb_code     WHERE      tree_code =  ?param0]
+2014-02-16 00:03:42,888 - Statement Id: [CODE.insert_code] Prepared SQL: []
+2014-02-16 00:03:42,888 - Statement Id: [CODE.update_code] Prepared SQL: []
+2014-02-16 00:03:42,888 - Statement Id: [CODE.delete_code] Prepared SQL: []
+2014-02-16 00:03:42,889 - Statement Id: [COMMAND.select_command_one] Prepared SQL: [SELECT      A.*,      T.*     FROM      tb_command AS A      LEFT JOIN tb_code AS T ON ( T.tree_type = 'status' AND T.tree_value = A.ord_type)     WHERE      A.idx =  ?param0      ORDER BY     A.mod_date DESC]
+2014-02-16 00:03:42,889 - Statement Id: [COMMAND.insert_command] Prepared SQL: [INSERT INTO tb_command     (      tb_name,      tb_idx,      ord_type,      ord_emp_no,      ord_emp_name,      subject,      content,      reg_ip,      hit,      reg_date,      mod_date     )     VALUES     (       ?param0 ,       ?param1 ,       ?param2 ,       ?param3 ,       ?param4 ,       ?param5 ,       ?param6 ,       ?param7 ,       ?param8 ,       ?param9 ,       ?param10      )]
+2014-02-16 00:03:42,890 - Statement Id: [COMMAND.delete_command] Prepared SQL: [DELETE FROM tb_command     WHERE      idx =  ?param0]
+2014-02-16 00:03:42,903 - Statement Id: [EMP.select_emp] Prepared SQL: [SELECT      *     FROM      tb_emp     WHERE             id =  ?param0        AND        passwd =  ?param1]
+2014-02-16 00:03:42,905 - Statement Id: [EMP.select_emp] PreparedStatement : [SELECT      *     FROM      tb_emp     WHERE             id =  ?param0        AND        passwd =  ?param1]
+2014-02-16 00:03:42,912 - Statement Id: [EMP.select_emp] Parameters: [?param0=[id,khane7], ?param1=[passwd,hopang]]
+2014-02-16 00:03:42,912 - Statement Id: [EMP.select_emp] Types: [?param0=[String, System.String], ?param1=[String, System.String]]
+2014-02-16 00:03:43,051 - Open Connection "25343178" to "MySQL, MySQL provider 6.6.5.0".
+2014-02-16 00:03:43,082 - Close Connection "25343178" to "MySQL, MySQL provider 6.6.5.0".
+2014-02-16 00:03:43,486 - Statement Id: [CODE.select_code_list] Prepared SQL: [SELECT      *     FROM      tb_code      WHERE         tree_type =  ?param0        AND        tree_level  >=  ?param1             ORDER BY      tree_order ASC]
+2014-02-16 00:03:43,486 - Statement Id: [CODE.select_code_list] PreparedStatement : [SELECT      *     FROM      tb_code      WHERE         tree_type =  ?param0        AND        tree_level  >=  ?param1             ORDER BY      tree_order ASC]
+2014-02-16 00:03:43,487 - Statement Id: [CODE.select_code_list] Parameters: [?param0=[tree_type,leftmenu], ?param1=[tree_level,0]]
+2014-02-16 00:03:43,487 - Statement Id: [CODE.select_code_list] Types: [?param0=[String, System.String], ?param1=[Int32, System.Int32]]
+2014-02-16 00:03:43,489 - Open Connection "66297305" to "MySQL, MySQL provider 6.6.5.0".
+2014-02-16 00:03:43,491 - Close Connection "66297305" to "MySQL, MySQL provider 6.6.5.0".
+2014-02-16 00:05:12,554 - Statement Id: [CODE.select_code_list] Prepared SQL: [SELECT      *     FROM      tb_code      WHERE         tree_type =  ?param0        AND        tree_level  >=  ?param1             ORDER BY      tree_order ASC]
+2014-02-16 00:05:12,554 - Statement Id: [CODE.select_code_list] PreparedStatement : [SELECT      *     FROM      tb_code      WHERE         tree_type =  ?param0        AND        tree_level  >=  ?param1             ORDER BY      tree_order ASC]
+2014-02-16 00:05:12,554 - Statement Id: [CODE.select_code_list] Parameters: [?param0=[tree_type,leftmenu], ?param1=[tree_level,0]]
+2014-02-16 00:05:12,555 - Statement Id: [CODE.select_code_list] Types: [?param0=[String, System.String], ?param1=[Int32, System.Int32]]
+2014-02-16 00:05:12,555 - Open Connection "8460354" to "MySQL, MySQL provider 6.6.5.0".
+2014-02-16 00:05:12,556 - Close Connection "8460354" to "MySQL, MySQL provider 6.6.5.0".
+2014-02-16 00:05:21,734 - Statement Id: [CODE.select_code_list] Prepared SQL: [SELECT      *     FROM      tb_code      WHERE         tree_type =  ?param0        AND        tree_level  >=  ?param1             ORDER BY      tree_order ASC]
+2014-02-16 00:05:21,734 - Statement Id: [CODE.select_code_list] PreparedStatement : [SELECT      *     FROM      tb_code      WHERE         tree_type =  ?param0        AND        tree_level  >=  ?param1             ORDER BY      tree_order ASC]
+2014-02-16 00:05:21,734 - Statement Id: [CODE.select_code_list] Parameters: [?param0=[tree_type,leftmenu], ?param1=[tree_level,0]]
+2014-02-16 00:05:21,734 - Statement Id: [CODE.select_code_list] Types: [?param0=[String, System.String], ?param1=[Int32, System.Int32]]
+2014-02-16 00:05:21,735 - Open Connection "16657179" to "MySQL, MySQL provider 6.6.5.0".
+2014-02-16 00:05:21,735 - Close Connection "16657179" to "MySQL, MySQL provider 6.6.5.0".
+2014-02-16 00:06:15,837 - Statement Id: [CODE.select_code_list] Prepared SQL: [SELECT      *     FROM      tb_code      WHERE         tree_type =  ?param0        AND        tree_level  >=  ?param1             ORDER BY      tree_order ASC]
+2014-02-16 00:06:15,837 - Statement Id: [CODE.select_code_list] PreparedStatement : [SELECT      *     FROM      tb_code      WHERE         tree_type =  ?param0        AND        tree_level  >=  ?param1             ORDER BY      tree_order ASC]
+2014-02-16 00:06:15,837 - Statement Id: [CODE.select_code_list] Parameters: [?param0=[tree_type,status], ?param1=[tree_level,2]]
+2014-02-16 00:06:15,837 - Statement Id: [CODE.select_code_list] Types: [?param0=[String, System.String], ?param1=[Int32, System.Int32]]
+2014-02-16 00:06:15,837 - Open Connection "66812131" to "MySQL, MySQL provider 6.6.5.0".
+2014-02-16 00:06:15,838 - Close Connection "66812131" to "MySQL, MySQL provider 6.6.5.0".
+2014-02-16 00:06:16,559 - Statement Id: [CODE.select_code_list] Prepared SQL: [SELECT      *     FROM      tb_code      WHERE         tree_type =  ?param0        AND        tree_level  >=  ?param1             ORDER BY      tree_order ASC]
+2014-02-16 00:06:16,559 - Statement Id: [CODE.select_code_list] PreparedStatement : [SELECT      *     FROM      tb_code      WHERE         tree_type =  ?param0        AND        tree_level  >=  ?param1             ORDER BY      tree_order ASC]
+2014-02-16 00:06:16,559 - Statement Id: [CODE.select_code_list] Parameters: [?param0=[tree_type,leftmenu], ?param1=[tree_level,0]]
+2014-02-16 00:06:16,559 - Statement Id: [CODE.select_code_list] Types: [?param0=[String, System.String], ?param1=[Int32, System.Int32]]
+2014-02-16 00:06:16,560 - Open Connection "53604440" to "MySQL, MySQL provider 6.6.5.0".
+2014-02-16 00:06:16,561 - Close Connection "53604440" to "MySQL, MySQL provider 6.6.5.0".
+2014-02-16 00:06:20,563 - Statement Id: [COMMAND.select_command_count] Prepared SQL: [SELECT      COUNT(*)     FROM      tb_command AS A      LEFT JOIN tb_command_emp AS B ON (A.idx = B.p_idx)      LEFT JOIN tb_comment AS C ON ( A.tb_name = C.tb_name AND A.idx = C.tb_idx)      LEFT JOIN tb_code AS T ON ( T.tree_type = 'status' AND T.tree_value = A.ord_type)]
+2014-02-16 00:06:20,563 - Statement Id: [COMMAND.select_command_count] PreparedStatement : [SELECT      COUNT(*)     FROM      tb_command AS A      LEFT JOIN tb_command_emp AS B ON (A.idx = B.p_idx)      LEFT JOIN tb_comment AS C ON ( A.tb_name = C.tb_name AND A.idx = C.tb_idx)      LEFT JOIN tb_code AS T ON ( T.tree_type = 'status' AND T.tree_value = A.ord_type)]
+2014-02-16 00:06:20,564 - Open Connection "49802092" to "MySQL, MySQL provider 6.6.5.0".
+2014-02-16 00:06:20,566 - Close Connection "49802092" to "MySQL, MySQL provider 6.6.5.0".
+2014-02-16 00:06:20,567 - Statement Id: [COMMAND.select_command_list] Prepared SQL: [SELECT      A.*,      T.*     FROM      tb_command AS A      LEFT JOIN tb_command_emp AS B ON (A.idx = B.p_idx)      LEFT JOIN tb_comment AS C ON ( A.tb_name = C.tb_name AND A.idx = C.tb_idx)      LEFT JOIN tb_code AS T ON ( T.tree_type = 'status' AND T.tree_value = A.ord_type)           ORDER BY      A.mod_date DESC            LIMIT 0, 20]
+2014-02-16 00:06:20,567 - Statement Id: [COMMAND.select_command_list] PreparedStatement : [SELECT      A.*,      T.*     FROM      tb_command AS A      LEFT JOIN tb_command_emp AS B ON (A.idx = B.p_idx)      LEFT JOIN tb_comment AS C ON ( A.tb_name = C.tb_name AND A.idx = C.tb_idx)      LEFT JOIN tb_code AS T ON ( T.tree_type = 'status' AND T.tree_value = A.ord_type)           ORDER BY      A.mod_date DESC            LIMIT 0, 20]
+2014-02-16 00:06:20,568 - Open Connection "44217296" to "MySQL, MySQL provider 6.6.5.0".
+2014-02-16 00:06:20,578 - Close Connection "44217296" to "MySQL, MySQL provider 6.6.5.0".
+2014-02-16 00:06:20,621 - Statement Id: [CODE.select_code_list] Prepared SQL: [SELECT      *     FROM      tb_code      WHERE         tree_type =  ?param0        AND        tree_level  >=  ?param1             ORDER BY      tree_order ASC]
+2014-02-16 00:06:20,622 - Statement Id: [CODE.select_code_list] PreparedStatement : [SELECT      *     FROM      tb_code      WHERE         tree_type =  ?param0        AND        tree_level  >=  ?param1             ORDER BY      tree_order ASC]
+2014-02-16 00:06:20,622 - Statement Id: [CODE.select_code_list] Parameters: [?param0=[tree_type,leftmenu], ?param1=[tree_level,0]]
+2014-02-16 00:06:20,622 - Statement Id: [CODE.select_code_list] Types: [?param0=[String, System.String], ?param1=[Int32, System.Int32]]
+2014-02-16 00:06:20,622 - Open Connection "47474176" to "MySQL, MySQL provider 6.6.5.0".
+2014-02-16 00:06:20,622 - Close Connection "47474176" to "MySQL, MySQL provider 6.6.5.0".
+2014-02-16 00:06:22,012 - Statement Id: [CODE.select_code_list] Prepared SQL: [SELECT      *     FROM      tb_code      WHERE         tree_type =  ?param0        AND        tree_level  >=  ?param1             ORDER BY      tree_order ASC]
+2014-02-16 00:06:22,012 - Statement Id: [CODE.select_code_list] PreparedStatement : [SELECT      *     FROM      tb_code      WHERE         tree_type =  ?param0        AND        tree_level  >=  ?param1             ORDER BY      tree_order ASC]
+2014-02-16 00:06:22,012 - Statement Id: [CODE.select_code_list] Parameters: [?param0=[tree_type,leftmenu], ?param1=[tree_level,0]]
+2014-02-16 00:06:22,012 - Statement Id: [CODE.select_code_list] Types: [?param0=[String, System.String], ?param1=[Int32, System.Int32]]
+2014-02-16 00:06:22,012 - Open Connection "21530843" to "MySQL, MySQL provider 6.6.5.0".
+2014-02-16 00:06:22,013 - Close Connection "21530843" to "MySQL, MySQL provider 6.6.5.0".
+2014-02-16 00:06:22,014 - Statement Id: [CODE.select_code_type_list] PreparedStatement : [SELECT      DISTINCT(tree_type)     FROM      tb_code]
+2014-02-16 00:06:22,014 - Open Connection "25345707" to "MySQL, MySQL provider 6.6.5.0".
+2014-02-16 00:06:22,015 - Close Connection "25345707" to "MySQL, MySQL provider 6.6.5.0".
+2014-02-16 00:06:22,051 - Statement Id: [CODE.select_code_list] Prepared SQL: [SELECT      *     FROM      tb_code      WHERE         tree_type =  ?param0        AND        tree_level  >=  ?param1             ORDER BY      tree_order ASC]
+2014-02-16 00:06:22,051 - Statement Id: [CODE.select_code_list] PreparedStatement : [SELECT      *     FROM      tb_code      WHERE         tree_type =  ?param0        AND        tree_level  >=  ?param1             ORDER BY      tree_order ASC]
+2014-02-16 00:06:22,051 - Statement Id: [CODE.select_code_list] Parameters: [?param0=[tree_type,leftmenu], ?param1=[tree_level,0]]
+2014-02-16 00:06:22,051 - Statement Id: [CODE.select_code_list] Types: [?param0=[String, System.String], ?param1=[Int32, System.Int32]]
+2014-02-16 00:06:22,051 - Open Connection "51259222" to "MySQL, MySQL provider 6.6.5.0".
+2014-02-16 00:06:22,052 - Close Connection "51259222" to "MySQL, MySQL provider 6.6.5.0".
+2014-02-16 00:06:23,085 - Statement Id: [CODE.select_code_one] PreparedStatement : [SELECT      *     FROM      tb_code     WHERE      tree_code =  ?param0]
+2014-02-16 00:06:23,085 - Statement Id: [CODE.select_code_one] Parameters: [?param0=[tree_code,4]]
+2014-02-16 00:06:23,085 - Statement Id: [CODE.select_code_one] Types: [?param0=[Int32, System.Int32]]
+2014-02-16 00:06:23,085 - Open Connection "13693282" to "MySQL, MySQL provider 6.6.5.0".
+2014-02-16 00:06:23,085 - Close Connection "13693282" to "MySQL, MySQL provider 6.6.5.0".
+2014-02-16 00:06:24,104 - Statement Id: [CODE.select_code_one] PreparedStatement : [SELECT      *     FROM      tb_code     WHERE      tree_code =  ?param0]
+2014-02-16 00:06:24,104 - Statement Id: [CODE.select_code_one] Parameters: [?param0=[tree_code,5]]
+2014-02-16 00:06:24,104 - Statement Id: [CODE.select_code_one] Types: [?param0=[Int32, System.Int32]]
+2014-02-16 00:06:24,104 - Open Connection "65198562" to "MySQL, MySQL provider 6.6.5.0".
+2014-02-16 00:06:24,105 - Close Connection "65198562" to "MySQL, MySQL provider 6.6.5.0".
+2014-02-16 00:06:26,079 - Statement Id: [CODE.select_code_one] PreparedStatement : [SELECT      *     FROM      tb_code     WHERE      tree_code =  ?param0]
+2014-02-16 00:06:26,079 - Statement Id: [CODE.select_code_one] Parameters: [?param0=[tree_code,2]]
+2014-02-16 00:06:26,079 - Statement Id: [CODE.select_code_one] Types: [?param0=[Int32, System.Int32]]
+2014-02-16 00:06:26,080 - Open Connection "57139543" to "MySQL, MySQL provider 6.6.5.0".
+2014-02-16 00:06:26,080 - Close Connection "57139543" to "MySQL, MySQL provider 6.6.5.0".
+2014-02-16 00:19:20,840 - Statement Id: [EMP.insert_emp] Prepared SQL: [INSERT INTO     tb_emp     (      id,      name,      passwd,      email,      reg_date,      mod_date,      is_used,      is_admin     )     VALUES     (       ?param0 ,       ?param1 ,       ?param2 ,       ?param3 ,       ?param4 ,       ?param5 ,       ?param6 ,       ?param7      )]
+2014-02-16 00:19:20,848 - Statement Id: [EMP.update_emp] Prepared SQL: [UPDATE      tb_emp     SET      name =  ?param0 ,      passwd =  ?param1 ,      email =  ?param2 ,      reg_date =  ?param3 ,      mod_date =  ?param4 ,      is_used =  ?param5 ,      is_admin =  ?param6      WHERE      idx =  ?param7]
+2014-02-16 00:19:20,852 - Statement Id: [EMP.delete_emp] Prepared SQL: [DELETE     FROM      tb_emp     WHERE      idx =  ?param0]
+2014-02-16 00:19:20,853 - Statement Id: [CODE.select_code_type_list] Prepared SQL: [SELECT      DISTINCT(tree_type)     FROM      tb_code]
+2014-02-16 00:19:20,853 - Statement Id: [CODE.select_code_one] Prepared SQL: [SELECT      *     FROM      tb_code     WHERE      tree_code =  ?param0]
+2014-02-16 00:19:20,853 - Statement Id: [CODE.insert_code] Prepared SQL: []
+2014-02-16 00:19:20,853 - Statement Id: [CODE.update_code] Prepared SQL: []
+2014-02-16 00:19:20,853 - Statement Id: [CODE.delete_code] Prepared SQL: []
+2014-02-16 00:19:20,854 - Statement Id: [COMMAND.select_command_one] Prepared SQL: [SELECT      A.*,      T.*     FROM      tb_command AS A      LEFT JOIN tb_code AS T ON ( T.tree_type = 'status' AND T.tree_value = A.ord_type)     WHERE      A.idx =  ?param0      ORDER BY     A.mod_date DESC]
+2014-02-16 00:19:20,855 - Statement Id: [COMMAND.insert_command] Prepared SQL: [INSERT INTO tb_command     (      tb_name,      tb_idx,      ord_type,      ord_emp_no,      ord_emp_name,      subject,      content,      reg_ip,      hit,      reg_date,      mod_date     )     VALUES     (       ?param0 ,       ?param1 ,       ?param2 ,       ?param3 ,       ?param4 ,       ?param5 ,       ?param6 ,       ?param7 ,       ?param8 ,       ?param9 ,       ?param10      )]
+2014-02-16 00:19:20,855 - Statement Id: [COMMAND.delete_command] Prepared SQL: [DELETE FROM tb_command     WHERE      idx =  ?param0]
+2014-02-16 00:19:20,864 - Statement Id: [EMP.select_emp] Prepared SQL: [SELECT      *     FROM      tb_emp     WHERE             id =  ?param0        AND        passwd =  ?param1]
+2014-02-16 00:19:20,865 - Statement Id: [EMP.select_emp] PreparedStatement : [SELECT      *     FROM      tb_emp     WHERE             id =  ?param0        AND        passwd =  ?param1]
+2014-02-16 00:19:20,868 - Statement Id: [EMP.select_emp] Parameters: [?param0=[id,khane7], ?param1=[passwd,hopang]]
+2014-02-16 00:19:20,868 - Statement Id: [EMP.select_emp] Types: [?param0=[String, System.String], ?param1=[String, System.String]]
+2014-02-16 00:19:20,930 - Open Connection "14500117" to "MySQL, MySQL provider 6.6.5.0".
+2014-02-16 00:19:20,944 - Close Connection "14500117" to "MySQL, MySQL provider 6.6.5.0".
+2014-02-16 00:19:21,062 - Statement Id: [CODE.select_code_list] Prepared SQL: [SELECT      *     FROM      tb_code      WHERE         tree_type =  ?param0        AND        tree_level  >=  ?param1             ORDER BY      tree_order ASC]
+2014-02-16 00:19:21,062 - Statement Id: [CODE.select_code_list] PreparedStatement : [SELECT      *     FROM      tb_code      WHERE         tree_type =  ?param0        AND        tree_level  >=  ?param1             ORDER BY      tree_order ASC]
+2014-02-16 00:19:21,062 - Statement Id: [CODE.select_code_list] Parameters: [?param0=[tree_type,leftmenu], ?param1=[tree_level,0]]
+2014-02-16 00:19:21,062 - Statement Id: [CODE.select_code_list] Types: [?param0=[String, System.String], ?param1=[Int32, System.Int32]]
+2014-02-16 00:19:21,064 - Open Connection "65520272" to "MySQL, MySQL provider 6.6.5.0".
+2014-02-16 00:19:21,066 - Close Connection "65520272" to "MySQL, MySQL provider 6.6.5.0".
+2014-02-16 00:19:22,390 - Statement Id: [CODE.select_code_list] Prepared SQL: [SELECT      *     FROM      tb_code      WHERE         tree_type =  ?param0        AND        tree_level  >=  ?param1             ORDER BY      tree_order ASC]
+2014-02-16 00:19:22,390 - Statement Id: [CODE.select_code_list] PreparedStatement : [SELECT      *     FROM      tb_code      WHERE         tree_type =  ?param0        AND        tree_level  >=  ?param1             ORDER BY      tree_order ASC]
+2014-02-16 00:19:22,390 - Statement Id: [CODE.select_code_list] Parameters: [?param0=[tree_type,leftmenu], ?param1=[tree_level,0]]
+2014-02-16 00:19:22,390 - Statement Id: [CODE.select_code_list] Types: [?param0=[String, System.String], ?param1=[Int32, System.Int32]]
+2014-02-16 00:19:22,390 - Open Connection "22175142" to "MySQL, MySQL provider 6.6.5.0".
+2014-02-16 00:19:22,391 - Close Connection "22175142" to "MySQL, MySQL provider 6.6.5.0".
+2014-02-16 00:19:22,392 - Statement Id: [CODE.select_code_type_list] PreparedStatement : [SELECT      DISTINCT(tree_type)     FROM      tb_code]
+2014-02-16 00:19:22,392 - Open Connection "48077697" to "MySQL, MySQL provider 6.6.5.0".
+2014-02-16 00:19:22,394 - Close Connection "48077697" to "MySQL, MySQL provider 6.6.5.0".
+2014-02-16 00:19:22,429 - Statement Id: [CODE.select_code_list] Prepared SQL: [SELECT      *     FROM      tb_code      WHERE         tree_type =  ?param0        AND        tree_level  >=  ?param1             ORDER BY      tree_order ASC]
+2014-02-16 00:19:22,429 - Statement Id: [CODE.select_code_list] PreparedStatement : [SELECT      *     FROM      tb_code      WHERE         tree_type =  ?param0        AND        tree_level  >=  ?param1             ORDER BY      tree_order ASC]
+2014-02-16 00:19:22,429 - Statement Id: [CODE.select_code_list] Parameters: [?param0=[tree_type,leftmenu], ?param1=[tree_level,0]]
+2014-02-16 00:19:22,429 - Statement Id: [CODE.select_code_list] Types: [?param0=[String, System.String], ?param1=[Int32, System.Int32]]
+2014-02-16 00:19:22,429 - Open Connection "27319713" to "MySQL, MySQL provider 6.6.5.0".
+2014-02-16 00:19:22,430 - Close Connection "27319713" to "MySQL, MySQL provider 6.6.5.0".
+2014-02-16 00:19:29,109 - Statement Id: [CODE.select_code_one] PreparedStatement : [SELECT      *     FROM      tb_code     WHERE      tree_code =  ?param0]
+2014-02-16 00:19:29,109 - Statement Id: [CODE.select_code_one] Parameters: [?param0=[tree_code,4]]
+2014-02-16 00:19:29,109 - Statement Id: [CODE.select_code_one] Types: [?param0=[Int32, System.Int32]]
+2014-02-16 00:19:29,111 - Open Connection "50542743" to "MySQL, MySQL provider 6.6.5.0".
+2014-02-16 00:19:29,112 - Close Connection "50542743" to "MySQL, MySQL provider 6.6.5.0".
+2014-02-16 00:19:29,982 - Statement Id: [CODE.select_code_one] PreparedStatement : [SELECT      *     FROM      tb_code     WHERE      tree_code =  ?param0]
+2014-02-16 00:19:29,982 - Statement Id: [CODE.select_code_one] Parameters: [?param0=[tree_code,5]]
+2014-02-16 00:19:29,982 - Statement Id: [CODE.select_code_one] Types: [?param0=[Int32, System.Int32]]
+2014-02-16 00:19:29,983 - Open Connection "51942797" to "MySQL, MySQL provider 6.6.5.0".
+2014-02-16 00:19:29,983 - Close Connection "51942797" to "MySQL, MySQL provider 6.6.5.0".
+2014-02-16 00:19:38,709 - Statement Id: [CODE.select_code_one] PreparedStatement : [SELECT      *     FROM      tb_code     WHERE      tree_code =  ?param0]
+2014-02-16 00:19:38,709 - Statement Id: [CODE.select_code_one] Parameters: [?param0=[tree_code,3]]
+2014-02-16 00:19:38,709 - Statement Id: [CODE.select_code_one] Types: [?param0=[Int32, System.Int32]]
+2014-02-16 00:19:38,709 - Open Connection "61095901" to "MySQL, MySQL provider 6.6.5.0".
+2014-02-16 00:19:38,710 - Close Connection "61095901" to "MySQL, MySQL provider 6.6.5.0".
+2014-02-16 10:58:45,867 - Statement Id: [CODE.select_code_list] Prepared SQL: [SELECT      *     FROM      tb_code      WHERE         tree_type =  ?param0        AND        tree_level  >=  ?param1             ORDER BY      tree_order ASC]
+2014-02-16 10:58:45,867 - Statement Id: [CODE.select_code_list] PreparedStatement : [SELECT      *     FROM      tb_code      WHERE         tree_type =  ?param0        AND        tree_level  >=  ?param1             ORDER BY      tree_order ASC]
+2014-02-16 10:58:45,867 - Statement Id: [CODE.select_code_list] Parameters: [?param0=[tree_type,leftmenu], ?param1=[tree_level,0]]
+2014-02-16 10:58:45,867 - Statement Id: [CODE.select_code_list] Types: [?param0=[String, System.String], ?param1=[Int32, System.Int32]]
+2014-02-16 10:58:45,983 - Open Connection "60317859" to "MySQL, MySQL provider 6.6.5.0".
+2014-02-16 10:58:45,983 - Close Connection "60317859" to "MySQL, MySQL provider 6.6.5.0".
+2014-02-16 10:58:45,983 - Statement Id: [CODE.select_code_type_list] PreparedStatement : [SELECT      DISTINCT(tree_type)     FROM      tb_code]
+2014-02-16 10:58:45,983 - Open Connection "64630028" to "MySQL, MySQL provider 6.6.5.0".
+2014-02-16 10:58:45,984 - Close Connection "64630028" to "MySQL, MySQL provider 6.6.5.0".
+2014-02-16 10:58:45,986 - Statement Id: [CODE.select_code_list] Prepared SQL: [SELECT      *     FROM      tb_code      WHERE         tree_type =  ?param0        AND        tree_level  >=  ?param1             ORDER BY      tree_order ASC]
+2014-02-16 10:58:45,986 - Statement Id: [CODE.select_code_list] PreparedStatement : [SELECT      *     FROM      tb_code      WHERE         tree_type =  ?param0        AND        tree_level  >=  ?param1             ORDER BY      tree_order ASC]
+2014-02-16 10:58:45,986 - Statement Id: [CODE.select_code_list] Parameters: [?param0=[tree_type,leftmenu], ?param1=[tree_level,0]]
+2014-02-16 10:58:45,986 - Statement Id: [CODE.select_code_list] Types: [?param0=[String, System.String], ?param1=[Int32, System.Int32]]
+2014-02-16 10:58:45,986 - Open Connection "34074420" to "MySQL, MySQL provider 6.6.5.0".
+2014-02-16 10:58:45,986 - Close Connection "34074420" to "MySQL, MySQL provider 6.6.5.0".
+2014-02-16 10:58:49,578 - Statement Id: [CODE.select_code_one] PreparedStatement : [SELECT      *     FROM      tb_code     WHERE      tree_code =  ?param0]
+2014-02-16 10:58:49,578 - Statement Id: [CODE.select_code_one] Parameters: [?param0=[tree_code,2]]
+2014-02-16 10:58:49,578 - Statement Id: [CODE.select_code_one] Types: [?param0=[Int32, System.Int32]]
+2014-02-16 10:58:49,578 - Open Connection "53110730" to "MySQL, MySQL provider 6.6.5.0".
+2014-02-16 10:58:49,579 - Close Connection "53110730" to "MySQL, MySQL provider 6.6.5.0".
+2014-02-16 10:58:50,659 - Statement Id: [CODE.select_code_one] PreparedStatement : [SELECT      *     FROM      tb_code     WHERE      tree_code =  ?param0]
+2014-02-16 10:58:50,659 - Statement Id: [CODE.select_code_one] Parameters: [?param0=[tree_code,4]]
+2014-02-16 10:58:50,659 - Statement Id: [CODE.select_code_one] Types: [?param0=[Int32, System.Int32]]
+2014-02-16 10:58:50,659 - Open Connection "47529906" to "MySQL, MySQL provider 6.6.5.0".
+2014-02-16 10:58:50,659 - Close Connection "47529906" to "MySQL, MySQL provider 6.6.5.0".

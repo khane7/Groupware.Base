@@ -1002,6 +1002,14 @@
     <Content Include="Content\ckfinder\_samples\sample.css" />
     <Content Include="Content\ckfinder\_samples\standalone.html" />
     <Content Include="Content\ckfinder\_samples\standalone_v1.html" />
+    <Content Include="Content\jstree\index.html" />
+    <Content Include="Content\jstree\jstree.js" />
+    <Content Include="Content\jstree\jstree.min.js" />
+    <Content Include="Content\jstree\themes\default\32px.png" />
+    <Content Include="Content\jstree\themes\default\40px.png" />
+    <Content Include="Content\jstree\themes\default\style.css" />
+    <Content Include="Content\jstree\themes\default\style.min.css" />
+    <Content Include="Content\jstree\themes\default\throbber.gif" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
