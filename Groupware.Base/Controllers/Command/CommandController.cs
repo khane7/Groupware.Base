@@ -80,7 +80,7 @@ namespace Groupware.Base.Controllers.Command
 					DaoCommand daoCommand = new DaoCommand();
 					ViewBag.command = daoCommand.getCommandOne(int.Parse(Request["idx"]));
 
-					ViewBag.status = new DaoCode().getTreeList("status", 0, null, 0);
+					ViewBag.status = new DaoCode().getCodeList("status", 0, null, 0);
 				}
 			}
 			catch (Exception e)
@@ -100,7 +100,7 @@ namespace Groupware.Base.Controllers.Command
 					DaoCommand daoCommand = new DaoCommand();
 					ViewBag.command = daoCommand.getCommandOne(int.Parse(Request["idx"]));
 
-					ViewBag.status = new DaoCode().getTreeList("status", 0, null, 0);
+					ViewBag.status = new DaoCode().getCodeList("status", 0, null, 0);
 				}
 			}
 			catch (Exception e)

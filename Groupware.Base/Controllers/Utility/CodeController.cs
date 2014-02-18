@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace Groupware.Base.Controllers.Utility
 {
-    public class TreeController : Controller
+    public class CodeController : Controller
     {
 		public ActionResult Index()
 		{
@@ -17,12 +17,12 @@ namespace Groupware.Base.Controllers.Utility
 
 		public ActionResult StatusList(string tree_type, int tree_level)
 		{
-			IList<CCode> listTree = new List<CCode>();
+			IList<CCode> listCode = new List<CCode>();
 			try
 			{
 				DaoCode daoTree = new DaoCode();
-				listTree = daoTree.getTreeList(tree_type, 0, null, tree_level);
-				ViewBag.listTree = listTree;
+				listCode = daoTree.getCodeList(tree_type, 0, null, tree_level);
+				ViewBag.listCode = listCode;
 			}
 			catch (Exception e)
 			{
@@ -30,12 +30,12 @@ namespace Groupware.Base.Controllers.Utility
 				throw new Exception(e.Message);
 			}
 
-			return PartialView("~/Views/PartialView/StatusView.cshtml", listTree);
+			return PartialView("~/Views/PartialView/StatusView.cshtml", listCode);
 		}
 
-		public ActionResult TreePreview(string tree_type)
+		public ActionResult CodePreview(string tree_type)
 		{
-			IList<CCode> listTree = new List<CCode>();
+			IList<CCode> listCode = new List<CCode>();
 			try
 			{
 				if (tree_type == null || tree_type == "")
@@ -43,29 +43,29 @@ namespace Groupware.Base.Controllers.Utility
 					tree_type = "leftmenu";
 				}
 
-				DaoCode daoTree = new DaoCode();
-				listTree = daoTree.getTreeList(tree_type, 0, null, 0);
-				ViewBag.listTree = listTree;
-				ViewBag.listTreeType = daoTree.getTreeTypeList();
+				DaoCode daoCode = new DaoCode();
+				listCode = daoCode.getCodeList(tree_type, 0, null, 0);
+				ViewBag.listCode = listCode;
+				ViewBag.listCodeType = daoCode.getCodeTypeList();
 			}
 			catch (Exception e)
 			{
 				throw new Exception(e.Message);
 			}
 
-			return PartialView("~/Views/Tree/TreePreview.cshtml", listTree);
+			return PartialView("~/Views/Code/CodePreview.cshtml", listCode);
 		}
 
-		public JsonResult getTreeOne(int tree_code)
+		public JsonResult getCodeOne(int tree_code)
 		{
-			CCode tree = new CCode();
+			CCode code = new CCode();
 			JsonResult json = new JsonResult();
 			try
 			{
 				DaoCode daoTree = new DaoCode();
-				
-				tree = daoTree.getTreeOne(tree_code);
-				json.Data = tree;
+
+				code = daoTree.getCodeOne(tree_code);
+				json.Data = code;
 			}
 			catch (Exception e)
 			{
@@ -76,19 +76,19 @@ namespace Groupware.Base.Controllers.Utility
 		}
 
 		[HttpPost]
-		public JsonResult setTreeOne()
+		public JsonResult setCodeOne()
 		{
 			//Request.Form["frm"][];
 			JsonResult json = new JsonResult();
 			try
 			{
-				CCode tree = new CCode();
+				CCode code = new CCode();
 
 
-				DaoCode daoTree = new DaoCode();
+				DaoCode daoCode = new DaoCode();
 
 				//tree = daoTree.getTreeOne(tree_code);
-				json.Data = tree;
+				json.Data = code;
 			}
 			catch (Exception e)
 			{

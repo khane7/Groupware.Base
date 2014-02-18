@@ -39,8 +39,17 @@ namespace Groupware.Base
 						"~/Content/themes/base/jquery.ui.progressbar.css",
 						"~/Content/themes/base/jquery.ui.theme.css"));
 
-			bundles.Add(new ScriptBundle("~/bundles/common").Include(
-						"~/js/common/utility.js"));
+			bundles.Add(new StyleBundle("~/custom/bootstrap-css").Include(
+						"~/css/bootstrap.css",
+						"~/css/bootstrap.min.css"));
+
+			bundles.Add(new ScriptBundle("~/custom/bootstrap-js").Include(
+						"~/js/bootstrap.js",
+						"~/js/bootstrap.min.js"));
+
+			bundles.Add(new ScriptBundle("~/custom/common-js").Include(
+						"~/js/common/utility.js",
+						"~/Content/jstree/jstree.min.js"));
 
 		}
 	}

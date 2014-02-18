@@ -147,7 +147,7 @@
     <Compile Include="Controllers\Partial\EditorController.cs" />
     <Compile Include="Controllers\Utility\JSonObject.cs" />
     <Compile Include="Controllers\Utility\PageHelper.cs" />
-    <Compile Include="Controllers\Utility\TreeController.cs" />
+    <Compile Include="Controllers\Utility\CodeController.cs" />
     <Compile Include="Controllers\Utility\UtilityController.cs" />
     <Compile Include="Controllers\WebHard\WebHardController.cs" />
     <Compile Include="Global.asax.cs">
@@ -1143,6 +1143,8 @@
     <Content Include="js\plugins\morris\morris.js" />
     <Content Include="js\plugins\morris\raphael-2.1.0.min.js" />
     <Content Include="js\sb-admin.js" />
+    <Content Include="Scripts\jquery-1.11.0.js" />
+    <Content Include="Scripts\jquery-1.11.0.min.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -1185,8 +1187,8 @@
     <Content Include="Views\WebHard\PopIndex.cshtml" />
     <Content Include="Views\Command\CommandView.cshtml" />
     <Content Include="Views\Command\CommandList.cshtml" />
-    <Content Include="Views\Tree\Index.cshtml" />
-    <Content Include="Views\Tree\TreePreview.cshtml" />
+    <Content Include="Views\Code\Index.cshtml" />
+    <Content Include="Views\Code\CodePreview.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

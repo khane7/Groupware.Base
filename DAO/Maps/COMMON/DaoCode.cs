@@ -10,12 +10,12 @@ namespace DAO
 	{
 		private static ILog logManager = LogManager.GetLogger(typeof(DaoManager));
 
-		public IList<CCode> getTreeList( IDictionary<string, Object> dic )
+		public IList<CCode> getCodeList(IDictionary<string, Object> dic)
 		{
 			return DaoManager.Instance.QueryForList<CCode>("CODE.select_code_list", dic);
 		}
 
-		public IList<CCode> getTreeList(string tree_type, int tree_code, string emp_no, int tree_level)
+		public IList<CCode> getCodeList(string tree_type, int tree_code, string emp_no, int tree_level)
 		{
 
 			IDictionary<string, object> dic = new Dictionary<string, object>();
@@ -25,15 +25,15 @@ namespace DAO
 			dic.Add("emp_no", emp_no);
 			dic.Add("tree_level", tree_level);
 
-			return getTreeList(dic);
+			return getCodeList(dic);
 		}
 
-		public IList<String> getTreeTypeList()
+		public IList<String> getCodeTypeList()
 		{
 			return DaoManager.Instance.QueryForList<String>("CODE.select_code_type_list", null);
 		}
 
-		public CCode getTreeOne(int tree_code)
+		public CCode getCodeOne(int tree_code)
 		{
 			return DaoManager.Instance.QueryForObject<CCode>("CODE.select_code_one", tree_code);
 		}

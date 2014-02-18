@@ -18,7 +18,7 @@ namespace Groupware.Base.Controllers.Layout
 			try
 			{
 				DaoCode daoTree = new DaoCode();
-				listTree = daoTree.getTreeList("leftmenu", 0, null, 0);
+				listTree = daoTree.getCodeList("leftmenu", 0, null, 0);
 				ViewBag.listTree = listTree;
 			}
 			catch (Exception e)

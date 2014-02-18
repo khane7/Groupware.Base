@@ -25,7 +25,7 @@
 	});
 
 	var setTreeCode = function ( tree_code ) {
-		goSimpleProcess("/Tree/getTreeOne", { "tree_code": tree_code }, "getTreeCode(data);" );
+		goSimpleProcess("/Code/getCodeOne", { "tree_code": tree_code }, "getTreeCode(data);");
 	}
 	var getTreeCode = function (data) {
 		$('#tree_code').val(data.tree_code);
@@ -42,7 +42,7 @@
     <div class="col-lg-4">
 
 		@{
-			Html.RenderAction("TreePreview", "Tree");
+			Html.RenderAction("CodePreview", "Code");
 		}
 		
     </div>
