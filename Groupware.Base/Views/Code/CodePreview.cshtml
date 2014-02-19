@@ -22,39 +22,48 @@
 	<!-- /.panel-heading -->
 	<div class="panel-body">
 
-		<nav class="navbar-default navbar-static-side" role="navigation" style="position:relative;">
-			<span class="sidebar-collapse">
-				<ul class="nav" id="side-menu">
 
-					<div class="form-group">
-						<label>tree type</label>
-						<select class="form-control" id="sel-tree_type">
-							@foreach (var item in ViewBag.listCodeType)
-							{
-								<option value="@item">@item</option>
-							}
-						</select>
-					</div>
+		<div class="form-group">
+			<label>tree type</label>
+			<select class="form-control" id="sel-tree_type">
+				@foreach (var item in ViewBag.listCodeType)
+				{
+					<option value="@item">@item</option>
+				}
+			</select>
+		</div>
 
-						<div id="jstree">
-						@{
-							var status = 0;
-							var prev_level = 1;
-							foreach (var item in ViewBag.listCode)
-							{
-								<ul>@item.tree_key
+		<div id="jstree">
+			<ul>
+			@{
+				var status = 0;
+				var prev_level = 1;
+				foreach (var item in ViewBag.listCode)
+				{
+					<li>@item.tree_key</li>
+				}
+			}
+			</ul>
+		</div>
 
-								</ul>
-							}
-						}
-						</div>
+		<script>
+		$(function () {
+			// 6 create an instance when the DOM is ready
+			$('#jstree').jstree();
+			// 7 bind to events triggered on the tree
+			$('#jstree').on("changed.jstree", function (e, data) {
+				console.log(data.selected);
+			});
+			// 8 interact with the tree - either way is OK
+			$('button').on('click', function () {
+				$('#jstree').jstree(true).select_node('child_node_1');
+				$('#jstree').jstree('select_node', 'child_node_1');
+				$.jstree.reference('#jstree').select_node('child_node_1');
+			});
+		});
+		</script>
 
-				</ul>
-				<!-- /#side-menu -->
-			</span>
-			<!-- /.sidebar-collapse -->
-		</nav>
-		<!-- /.navbar-static-side -->
+
 
 	</div>
 	<!-- /.panel-body -->

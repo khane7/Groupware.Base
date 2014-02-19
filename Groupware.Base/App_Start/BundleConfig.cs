@@ -39,6 +39,19 @@ namespace Groupware.Base
 						"~/Content/themes/base/jquery.ui.progressbar.css",
 						"~/Content/themes/base/jquery.ui.theme.css"));
 
+			/**
+			 * jquery library
+			 * */
+			bundles.Add(new ScriptBundle("~/jquerylib/jstree-js").Include(
+						"~/Content/jstree/jstree.js",
+						"~/Content/jstree/jstree.min.js"));
+			bundles.Add(new StyleBundle("~/jquerylib/jstree-css").Include(
+						"~/Content/jstree/themes/default/style.css",
+						"~/Content/jstree/themes/default/style.min.css"));
+
+			/**
+			 * bootstrap
+			 * */
 			bundles.Add(new StyleBundle("~/custom/bootstrap-css").Include(
 						"~/css/bootstrap.css",
 						"~/css/bootstrap.min.css"));
@@ -47,9 +60,11 @@ namespace Groupware.Base
 						"~/js/bootstrap.js",
 						"~/js/bootstrap.min.js"));
 
+			/**
+			 * utility
+			 * */
 			bundles.Add(new ScriptBundle("~/custom/common-js").Include(
-						"~/js/common/utility.js",
-						"~/Content/jstree/jstree.min.js"));
+						"~/js/common/utility.js"));
 
 		}
 	}
