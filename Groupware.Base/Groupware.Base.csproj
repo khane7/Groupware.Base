@@ -145,10 +145,10 @@
     <Compile Include="Controllers\Layout\HeaderController.cs" />
     <Compile Include="Controllers\Layout\LeftController.cs" />
     <Compile Include="Controllers\Partial\EditorController.cs" />
-    <Compile Include="Controllers\Utility\JSonObject.cs" />
-    <Compile Include="Controllers\Utility\PageHelper.cs" />
-    <Compile Include="Controllers\Utility\CodeController.cs" />
-    <Compile Include="Controllers\Utility\UtilityController.cs" />
+    <Compile Include="Controllers\Utilities\JSonObject.cs" />
+    <Compile Include="Controllers\Utilities\PageHelper.cs" />
+    <Compile Include="Controllers\Utilities\CodeController.cs" />
+    <Compile Include="Controllers\Utilities\UtilityController.cs" />
     <Compile Include="Controllers\WebHard\WebHardController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -1127,6 +1127,7 @@
     <Content Include="img\glyphicons-halflings.png" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\common\code_util.js" />
     <Content Include="js\common\utility.js" />
     <Content Include="js\demo\dashboard-demo.js" />
     <Content Include="js\demo\flot-demo.js" />
@@ -1209,7 +1210,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_LocalResources\Resource_ko.resx" />
+    <EmbeddedResource Include="App_LocalResources\Resource_ko.resx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -5,7 +5,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Groupware.Base.Controllers.Utility
+namespace Groupware.Base.Controllers.Utilities
 {
     public class UtilityController : Controller
     {

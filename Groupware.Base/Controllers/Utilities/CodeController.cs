@@ -6,7 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Groupware.Base.Controllers.Utility
+namespace Groupware.Base.Controllers.Utilities
 {
     public class CodeController : Controller
     {
@@ -60,6 +60,9 @@ namespace Groupware.Base.Controllers.Utility
 		{
 			CCode code = new CCode();
 			JsonResult json = new JsonResult();
+
+			HttpContext.GetGlobalResourceObject("c", "s");
+
 			try
 			{
 				DaoCode daoTree = new DaoCode();

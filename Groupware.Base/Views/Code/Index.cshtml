@@ -4,15 +4,56 @@
 }
 
 <script type="text/javascript">
+	var addCode = function () {
+
+		var result = "";
+		var lastOrder = "";
+		$('.tree_list').each(function () {
+			//alert($(this).prop("id"));
+
+			if ($(this).prop("id").split("-")[1].substring(0, $('#tree_order').val().length) == $('#tree_order').val() ) {
+				//alert($(this).prop("id").split("-")[1]);
+				lastOrder = $(this).prop("id").split("-")[1];
+			}
+
+		});
+
+		//alert(lastOrder + "---------" + $('#tree_order').val());
+		//alert(lastOrder.replace($('#tree_order').val()));
+		if (lastOrder == $('#tree_order').val() ) {
+			lastOrder = lastOrder + ".1";
+		} else {
+
+			var arrLastOrder = lastOrder.split(".");
+			var newLastOrder = Array();
+			for (var i = 0; i < arrLastOrder.length-1; i++) {
+				newLastOrder[i] = arrLastOrder[i];
+			}
+			//alert(newLastOrder.join(".") + "." + parseInt(lastOrder.split(".")[lastOrder.split(".").length - 1]));
+			lastOrder = newLastOrder.join(".") + "." +  (parseInt(lastOrder.split(".")[lastOrder.split(".").length - 1]) + 1);
+		}
+
+		//alert($('#' + $('#tree_code').val() +  ' > li :eq(' + (i-1) + ')').html());
+		//alert(lastOrder);
+
+		$('#tree_level').val(parseInt($('#tree_level').val()) + 1);
+		$('#tree_code').val("");
+		$('#tree_key').val("");
+		$('#tree_value').val("");
+		$('#tree_order').val(lastOrder);
+		$('#html_class').val("");
+	}
+
 
 	$(document).ready(function () {
 		$('#btn-add').click(function () {
-			$('#tree_code').val("");
-			$('#tree_level').val("");
-			$('#tree_key').val("");
-			$('#tree_value').val("");
-			$('#tree_order').val("");
-			$('#html_class').val("");
+
+			if ($('#tree_code').val() == "" ) {
+				showAlert("validate", "상위코드를 선택해주세요.", false)
+				return;
+			}
+
+			addCode();
 		});
 
 		$('#btn-save').click(function () {
@@ -76,7 +117,7 @@
 						</div>
 						<div class="form-group">
 							<label>tree_order</label>
-							<input class="form-control" placeholder="tree_order" id="tree_order" name="tree_order"  value="" disabled="">
+							<input class="form-control" placeholder="tree_order" id="tree_order" name="tree_order"  value="" >
 						</div>
 						<div class="form-group">
 							<label>html_class</label>

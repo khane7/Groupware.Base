@@ -1,5 +1,5 @@
 ﻿using DAO;
-using Groupware.Base.Controllers.Utility;
+using Groupware.Base.Controllers.Utilities;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using Utility;
+using Utilities;
 
 namespace Groupware.Base.Controllers.Command
 {

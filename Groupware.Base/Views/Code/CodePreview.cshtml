@@ -37,10 +37,27 @@
 			<ul>
 			@{
 				var status = 0;
-				var prev_level = 1;
+				var prev_level = 0;
 				foreach (var item in ViewBag.listCode)
 				{
-					<li>@item.tree_key</li>
+
+					if ( prev_level != 0 && @item.tree_level > prev_level )
+					{
+						@Html.Raw("<ul>");
+					}
+					else if (prev_level != 0 && @item.tree_level < prev_level)
+					{
+						@Html.Raw("</ul></li>");
+					}
+					else
+					{
+						@Html.Raw("</li>");
+					}
+					
+					@Html.Raw("<li id='" + @item.tree_code + "-" + @item.tree_order + "' class='tree_list'>");
+						@item.tree_key
+	   
+					prev_level = @item.tree_level;
 				}
 			}
 			</ul>
@@ -50,16 +67,30 @@
 		$(function () {
 			// 6 create an instance when the DOM is ready
 			$('#jstree').jstree();
+			$('#jstree').jstree("open_all");
 			// 7 bind to events triggered on the tree
 			$('#jstree').on("changed.jstree", function (e, data) {
 				console.log(data.selected);
+				setTreeCode(parseInt(data.selected.toString().split("-")[0]));
 			});
+			$("#jstree").bind("select_node.jstree", function (e, data) {
+				// data.inst is the tree object, and data.rslt.obj is the node
+				//return data.inst.toggle_node(data.rslt.obj);
+				//alert($(this).jstree("is_open"));
+				if (data.instance.is_open(data.node) == false) {
+					data.instance.open_node(data.node)
+				}
+				
+				//data.instance.toggle_node(data.node);
+			});
+
 			// 8 interact with the tree - either way is OK
-			$('button').on('click', function () {
-				$('#jstree').jstree(true).select_node('child_node_1');
-				$('#jstree').jstree('select_node', 'child_node_1');
-				$.jstree.reference('#jstree').select_node('child_node_1');
-			});
+			//$('button').on('click', function () {
+			//	//javascript: setTreeCode('item.tree_code');
+			//	$('#jstree').jstree(true).select_node('child_node_1');
+			//	$('#jstree').jstree('select_node', 'child_node_1');
+			//	$.jstree.reference('#jstree').select_node('child_node_1');
+			//});
 		});
 		</script>
 
