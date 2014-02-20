@@ -40,7 +40,19 @@ namespace DAO
 
 		public void setCodeOne (CCode code)
 		{
-			DaoManager.Instance.Insert("CODE.insert_code_one", code);
+			if ( code.tree_code == null || code.tree_code == ""  )
+			{
+				DaoManager.Instance.Insert("CODE.insert_code_one", code);
+			}
+			else
+			{
+				DaoManager.Instance.Update("CODE.update_code_one", code);
+			}	
+		}
+
+		public void deleteCodeOne( int tree_code )
+		{
+			DaoManager.Instance.Delete("CODE.delete_code_one", tree_code);
 		}
 
 	}

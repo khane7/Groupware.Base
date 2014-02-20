@@ -48,6 +48,7 @@ namespace Utilities
 			tagliprev.AddCssClass(cssprev);
 			TagBuilder tagiprev = new TagBuilder("a");
 			tagiprev.MergeAttribute("href", "javascript:goPageNum('prev');");
+			tagiprev.MergeAttribute("disabled", "disabled");
 			tagiprev.InnerHtml = "Previous";
 			tagliprev.InnerHtml = tagiprev.ToString();
 
@@ -95,6 +96,7 @@ namespace Utilities
 			taglinext.AddCssClass(cssnext);
 			TagBuilder taginext = new TagBuilder("a");
 			taginext.MergeAttribute("href", "javascript:goPageNum('next');");
+			taginext.MergeAttribute("disabled", "disabled");
 			taginext.InnerHtml = "Next";
 			taglinext.InnerHtml = taginext.ToString();
 

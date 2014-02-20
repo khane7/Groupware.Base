@@ -13,6 +13,7 @@ namespace Groupware.Base.Controllers.Partial
 
         public ActionResult Index(string content)
         {
+			ViewBag.contents = content;
 			return PartialView("~/Views/PartialView/ckeditor.cshtml", content);
         }
 

@@ -75,13 +75,16 @@ namespace Groupware.Base.Controllers.Command
 		{
 			try
 			{
+				CCommand command = new CCommand();
 				if (Request["idx"] != null && int.Parse(Request["idx"]) > 0)
 				{
 					DaoCommand daoCommand = new DaoCommand();
-					ViewBag.command = daoCommand.getCommandOne(int.Parse(Request["idx"]));
+					command = daoCommand.getCommandOne(int.Parse(Request["idx"]));
 
-					ViewBag.status = new DaoCode().getCodeList("status", 0, null, 0);
+					//ViewBag.status = new DaoCode().getCodeList("status", 0, null, 0);
 				}
+
+				ViewBag.command = command;
 			}
 			catch (Exception e)
 			{
@@ -98,7 +101,16 @@ namespace Groupware.Base.Controllers.Command
 				if (Request["idx"] != null && int.Parse(Request["idx"]) > 0)
 				{
 					DaoCommand daoCommand = new DaoCommand();
-					ViewBag.command = daoCommand.getCommandOne(int.Parse(Request["idx"]));
+					CCommand command = daoCommand.getCommandOne(int.Parse(Request["idx"]));
+					ViewBag.command = command;
+					if ( command.ord_emp_no.Equals( Session["emp_no"] ) )
+					{
+						ViewBag.IsAuth = true;
+					}
+					else
+					{
+						ViewBag.IsAuth = false;
+					}
 
 					ViewBag.status = new DaoCode().getCodeList("status", 0, null, 0);
 				}
@@ -124,7 +136,7 @@ namespace Groupware.Base.Controllers.Command
 				command.subject = Request["subject"];
 				command.ord_emp_no = Session["emp_no"].ToString();
 				command.ord_emp_name = Request["ord_emp_no"];
-				command.ord_type = Request["ord_type"];
+				command.ord_type = Request["tree_value"];
 				command.content = Request["content"];
 				command.reg_ip = UtilityController.getUserIP(Request);
 
@@ -151,6 +163,25 @@ namespace Groupware.Base.Controllers.Command
 			}
 
 			return jsonObj;
+		}
+
+		[HttpPost]
+		public JObject Delete()
+		{
+			JObject json = new JObject();
+			try
+			{
+				int idx = int.Parse( Request["idx"].ToString() );
+				new DaoCommand().deleteCommand(idx);
+				json.Add("RESULT", "OK");
+			}
+			catch (Exception e)
+			{
+				json.Add("RESULT", "FAIL");
+				json.Add("MSG", e.Message);
+				//throw;
+			}
+			return json;
 		}
 
     }

@@ -60,5 +60,11 @@ namespace DAO
 			}
 		}
 
+		public void deleteCommand(int idx)
+		{
+
+			DaoManager.Instance.Update("COMMAND.delete_command", idx);
+		}
+
 	}
 }

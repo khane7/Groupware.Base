@@ -15,7 +15,7 @@ namespace Groupware.Base.Controllers.Utilities
 			return View();
 		}
 
-		public ActionResult StatusList(string tree_type, int tree_level)
+		public ActionResult StatusList(string tree_type, int tree_level, string tree_value)
 		{
 			IList<CCode> listCode = new List<CCode>();
 			try
@@ -23,6 +23,7 @@ namespace Groupware.Base.Controllers.Utilities
 				DaoCode daoTree = new DaoCode();
 				listCode = daoTree.getCodeList(tree_type, 0, null, tree_level);
 				ViewBag.listCode = listCode;
+				ViewBag.tree_value = (tree_value == null || tree_value == "") ? "" : tree_value;
 			}
 			catch (Exception e)
 			{
@@ -40,7 +41,7 @@ namespace Groupware.Base.Controllers.Utilities
 			{
 				if (tree_type == null || tree_type == "")
 				{
-					tree_type = "leftmenu";
+					tree_type = "company";
 				}
 
 				DaoCode daoCode = new DaoCode();
@@ -86,16 +87,36 @@ namespace Groupware.Base.Controllers.Utilities
 			try
 			{
 				CCode code = new CCode();
+				code.tree_code = form["tree_code"];
 				code.tree_type = form["tree_type"];
-				code.tree_level = int.Parse(form["tree_level"]);
+				code.tree_level = form["tree_order"].Split('.').Length;
 				code.tree_key = form["tree_key"];
 				code.tree_value = form["tree_value"];
 				code.tree_order = form["tree_order"];
 				code.html_class = form["html_class"];
 
-				DaoCode daoCode = new DaoCode();
+				new DaoCode().setCodeOne(code);
+				jobj.Add("RESULT", "OK");
 
-				daoCode.setCodeOne(code);
+			}
+			catch (Exception e)
+			{
+				jobj.Add("RESULT", "FAIL");
+				jobj.Add("MSG", e.Message);
+				//throw new Exception(e.Message);
+			}
+			return jobj;
+		}
+
+		[HttpPost]
+		public JObject deleteCodeOne(FormCollection form)
+		{
+			//Request.Form["frm"][];
+			JObject jobj = new JObject();
+			try
+			{
+				new DaoCode().deleteCodeOne( int.Parse( form["tree_code"] ));
+
 				jobj.Add("RESULT", "OK");
 
 			}

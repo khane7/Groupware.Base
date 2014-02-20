@@ -22,11 +22,12 @@ var hideAlert = function () {
 }
 
 
-
+//실제 페이지 이동
 var goPage = function (pageUrl) {
 
 	showAlert("Wait", "Loading...", false);
 	location.href = pageUrl;
+	hideAlert();
 }
 
 var goPageNum = function (pageNum) {
@@ -37,9 +38,9 @@ var goPageNum = function (pageNum) {
 	params = removeParameter(params, "idx");
 
 	if (params != "") {
-		location.href = "./?" + params + "&pageNum=" + pageNum;
+		goPage("./?" + params + "&pageNum=" + pageNum);
 	} else {
-		location.href = "./?" + "pageNum=" + pageNum;
+		goPage("./?" + "pageNum=" + pageNum);
 	}
 	
 }
@@ -50,13 +51,12 @@ var goBack = function () {
 
 var goList = function (url) {
 
-	showAlert("Wait", "Loading...", false);
-	location.href = "/" + url + "?" + removeParameter(location.href, "idx");
+	//location.href = "/" + url + "?" + removeParameter(location.href, "idx");
+	goPage("/" + url + "?" + removeParameter(location.href, "idx"));
 }
 
 var goView = function (url, idx) {
 
-	showAlert("Wait", "Loading...", false);
 	location.href = url + "?idx=" + idx + "&" + removeParameter(location.href, "idx");
 
 }
@@ -73,12 +73,14 @@ var goProcess = function (url_, frmId_, successFunc) {
 		clearForm: true,
 		resetForm: true,
 		success: function (data) {
+			//hideAlert();
+
 			if (data.RESULT == "OK") {
 				(successFunc != "") ? eval(successFunc) : "";
 			} else {
 				showAlert(data.RESULT, data.MSG, false);
 			}
-			hideAlert();
+			
 		},
 		beforeSend: function () {
 			showAlert("Process", "Loading...", false);
@@ -102,8 +104,9 @@ var goSimpleProcess = function (url_, data_, successFunc) {
 		clearForm: true,
 		resetForm: true,
 		success: function (data) {
-			(successFunc != "") ? eval(successFunc) : "";
 			hideAlert();
+
+			(successFunc != "") ? eval(successFunc) : "";
 		},
 		beforeSend: function () {
 			showAlert("Process", "Loading...", false);

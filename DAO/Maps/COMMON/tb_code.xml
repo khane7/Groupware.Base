@@ -68,13 +68,27 @@
 		</insert>
 
 
-		<update id="CODE.update_code" parameterClass="System.Int32">
-			
+		<update id="CODE.update_code_one" parameterClass="System.Int32">
+			UPDATE
+				tb_code
+			SET
+				tree_type = #tree_type#,
+				tree_level = #tree_level#,
+				tree_key = #tree_key#,
+				tree_value = #tree_value#,
+				tree_order = #tree_order#,
+				html_class = #html_class#
+			WHERE
+				tree_code = #tree_code#
 		</update>
 
 		
-		<delete id="CODE.delete_code" parameterClass="System.Int32">
-			
+		<delete id="CODE.delete_code_one" parameterClass="System.Int32">
+			DELETE
+			FROM
+				tb_code
+			WHERE
+				tree_code = #tree_code#
 		</delete>
 		
 	</statements>

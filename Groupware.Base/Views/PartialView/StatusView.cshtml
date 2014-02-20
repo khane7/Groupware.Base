@@ -12,13 +12,13 @@
 			});
 
 			$(this).addClass("active");
-			$('#ord_type').val($(this).val());
+			$('#tree_value').val($(this).val());
 		});
 
-		if ($('#ord_type').val() == "") {
+		if ($('#tree_value').val() == "") {
 			$('#btn-status-share').trigger("click");
 		} else {
-			$('#btn-status-' + $('#ord_type').val()).trigger("click");
+			$('#btn-status-' + $('#tree_value').val()).trigger("click");
 		}
 
 	});
@@ -30,7 +30,7 @@
 	 {
 		<button id="btn-status-@item.tree_value" name="btn-status" class="btn btn-outline btn-@item.html_class" type="button" value="@item.tree_value" >@item.tree_key</button> 
 	 }
-	<input type="hidden" id="ord_type" name="ord_type" />
+	<input type="hidden" id="tree_value" name="tree_value" value="@ViewBag.tree_value" />
 @*    <button class="btn btn-outline btn-default" type="button">Default</button>
     <button class="btn btn-outline btn-primary" type="button">Primary</button>
     <button class="btn btn-outline btn-success" type="button">Success</button>

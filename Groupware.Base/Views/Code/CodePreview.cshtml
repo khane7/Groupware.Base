@@ -5,7 +5,8 @@
 
 	$(document).ready(function () {
 
-		$('#sel-tree_type').val((getParameter("tree_type") == "") ? "leftmenu" : getParameter("tree_type"));
+		$('#sel-tree_type').val((getParameter("tree_type") == "") ? "company" : getParameter("tree_type"));
+		$('#tree_type').val($('#sel-tree_type').val());
 		$('#sel-tree_type').change(function () {
 			goPage("./?tree_type=" + $(this).val());
 		});

@@ -1,6 +1,6 @@
 ﻿@{
     ViewBag.Title = "CommandWrite";
-	var command = ViewBag.command;
+	
 }
 
 
@@ -43,21 +43,21 @@
 
 
 				<form id="frm" name="frm" method="post">
-				<input type="hidden" id="idx" name="idx" value="" />
+				<input type="hidden" id="idx" name="idx" value="@ViewBag.command.idx" />
 
 				<div class="form-group">
 					<label>command type</label>
 					@{
-						Html.RenderAction("StatusList", "Code", new RouteValueDictionary { { "tree_type", "status" }, { "tree_level", 2 } });
+						Html.RenderAction("StatusList", "Code", new RouteValueDictionary { { "tree_type", "status" }, { "tree_level", 2 }, { "tree_value", @ViewBag.command.ord_type } });
 					}
 				</div>
 				<div class="form-group">
 					<label>subject</label>
-					<input class="form-control" placeholder="Enter Subject" id="subject" name="subject"  value="">
+					<input class="form-control" placeholder="Enter Subject" id="subject" name="subject"  value="@ViewBag.command.subject">
 				</div>
 				<div class="form-group">
 					<label>writer</label>
-					<input class="form-control" placeholder="Enter Writer's Name" id="ord_emp_no" name="ord_emp_no" value="@Session["name"]"  value="">
+					<input class="form-control" placeholder="Enter Writer's Name" id="ord_emp_no" name="ord_emp_no" value="@Session["name"]"  value="@ViewBag.command.ord_emp_name">
 				</div>
 				<div class="form-group">
 					<label>receives</label>
@@ -66,7 +66,7 @@
 				<div class="form-group">
                     <label>Content</label>
 					@{
-						Html.RenderAction("Index", "Editor", null);
+						Html.RenderAction("Index", "Editor", new RouteValueDictionary { { "content", @ViewBag.command.content} });
 					}
                     @*<textarea class="form-control" rows="15" id="content" name="content"></textarea>*@
                 </div>

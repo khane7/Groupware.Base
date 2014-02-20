@@ -8,7 +8,7 @@
 </script>
 
 <textarea id="content" name="content" style="display:none;"></textarea>
-<textarea id="contents" name="contents" ></textarea>
+<textarea id="contents" name="contents" >@ViewBag.contents</textarea>
 
 
 <script type="text/javascript">
@@ -28,7 +28,10 @@
 		uiColor: '#eaebe7',
 		filebrowserBrowseUrl: '/WebHard/Popup',
 		filebrowserImageBrowseUrl: '/WebHard/Popup?type=Images',
-		filebrowserFlashBrowseUrl: '/WebHard/Popup?type=Flash'
+		filebrowserFlashBrowseUrl: '/WebHard/Popup?type=Flash',
+		filebrowserUploadUrl: '/Content/ckfinder/core/connector/aspx/connector.aspx?command=QuickUpload&type=Files',
+		filebrowserImageUploadUrl: '/Content/ckfinder/core/connector/aspx/connector.aspx?command=QuickUpload&type=Images',
+		filebrowserFlashUploadUrl : '/Content/ckfinder/core/connector/aspx/connector.aspx?command=QuickUpload&type=Flash'
 	});
 
 </script>

@@ -15,20 +15,20 @@
 				LEFT JOIN tb_code AS T ON ( T.tree_type = 'status' AND T.tree_value = A.ord_type)
 			<dynamic prepend="WHERE">
 			
-				<isNotNull property="search_value">
+				<isNotNull property="search_value" prepend="AND">
 					$search_key$ = #search_value#
 				</isNotNull>
-				<isNotNull property="ord_emp_no">
+				<isNotNull property="ord_emp_no" prepend="AND">
 					A.ord_emp_no = #ord_emp_no#
 				</isNotNull>
-				<isNotNull property="receive_emp_no">
+				<isNotNull property="receive_emp_no" prepend="AND">
 					B.receive_emp_no = #receive_emp_no#
 				</isNotNull>
 
 			</dynamic>
 			ORDER BY
 				A.mod_date DESC
-			<isNotNull prepend="LIMIT" property="limit">
+			<isNotNull property="limit">
 			LIMIT $start$, $limit$
 			</isNotNull>
 		</select>
@@ -104,36 +104,24 @@
 
 
 		<update id="COMMAND.update_command" parameterClass="CCommand">
-			UPDATE tb_command
+			UPDATE
+				tb_command
 			SET
-			<isNotNull prepend=" " property="tb_name">
 				tb_name = #tb_name#,
-			</isNotNull>
-			<isNotNull prepend=", " property="tb_idx">
 				tb_idx = #tb_idx#,
-			</isNotNull>
-			<isNotNull prepend=", " property="ord_type">
 				ord_type = #ord_type#,
-			</isNotNull>
-			<isNotNull prepend=", " property="subject">
 				subject = #subject#,
-			</isNotNull>
-			<isNotNull prepend=", " property="content">
 				content = #content#,
-			</isNotNull>
-			<isNotNull prepend=", " property="reg_ip">
 				reg_ip = #reg_ip#,
-			</isNotNull>
-			<isNotNull prepend=", " property="mod_date">
-				mod_date = #mod_date#,
-			</isNotNull>
+				mod_date = #mod_date#
 			WHERE
 				idx = #idx#
 		</update>
 
 		
 		<delete id="COMMAND.delete_command" parameterClass="System.Int32">
-			DELETE FROM tb_command
+			DELETE FROM 
+				tb_command
 			WHERE
 				idx = #idx#
 		</delete>

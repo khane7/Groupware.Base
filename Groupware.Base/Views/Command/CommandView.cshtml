@@ -1,14 +1,27 @@
 ﻿@{
     ViewBag.Title = "CommandView";
 	var command = ViewBag.command;
+	
 }
 
 
 <script type="text/javascript">
 
 	$(document).ready(function () {
+		$('#btn-update').click(function () {
+			goView("/Command/Write", getParameter("idx"));
+		});
+
+		$('#btn-delete').click(function () {
+
+			showAlert("DELETE", "삭제하시겠습니까?", true, "deleteCommandOne();");
+		});
 
 	});
+
+	var deleteCommandOne = function () {
+		goSimpleProcess("/Command/Delete", { idx : getParameter("idx") }, "goList('Command');" );
+	}
 
 </script>
 
@@ -38,6 +51,11 @@
 				</div>
 
 				<div style="text-align: right;">
+					@if (ViewBag.IsAuth == true)
+					{
+						<button class="btn btn-primary" id="btn-update" type="button">UPDATE</button>
+						<button class="btn btn-danger" id="btn-delete" type="button">DELETE</button>
+					}
 					<button class="btn btn-default" id="btn-cancel" type="button" onclick="javascript:goList('Command');">Back</button>
 				</div>
 
