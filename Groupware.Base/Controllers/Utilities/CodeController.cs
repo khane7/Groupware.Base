@@ -79,26 +79,33 @@ namespace Groupware.Base.Controllers.Utilities
 		}
 
 		[HttpPost]
-		public JsonResult setCodeOne()
+		public JObject setCodeOne(FormCollection form)
 		{
 			//Request.Form["frm"][];
-			JsonResult json = new JsonResult();
+			JObject jobj = new JObject();
 			try
 			{
 				CCode code = new CCode();
-
+				code.tree_type = form["tree_type"];
+				code.tree_level = int.Parse(form["tree_level"]);
+				code.tree_key = form["tree_key"];
+				code.tree_value = form["tree_value"];
+				code.tree_order = form["tree_order"];
+				code.html_class = form["html_class"];
 
 				DaoCode daoCode = new DaoCode();
 
-				//tree = daoTree.getTreeOne(tree_code);
-				json.Data = code;
+				daoCode.setCodeOne(code);
+				jobj.Add("RESULT", "OK");
+
 			}
 			catch (Exception e)
 			{
-				throw new Exception(e.Message);
+				jobj.Add("RESULT", "FAIL");
+				jobj.Add("MSG", e.Message);
+				//throw new Exception(e.Message);
 			}
-
-			return json;
+			return jobj;
 		}
 
     }

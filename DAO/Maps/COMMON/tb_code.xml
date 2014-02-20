@@ -45,8 +45,26 @@
 		</select>
 
 		
-		<insert id="CODE.insert_code" parameterClass="CCode">
-			
+		<insert id="CODE.insert_code_one" parameterClass="CCode">
+			INSERT INTO
+				tb_code
+			(
+				tree_type,
+				tree_level,
+				tree_key,
+				tree_value,
+				tree_order,
+				html_class
+			)
+			VALUES
+			(
+				#tree_type#,
+				#tree_level#,
+				#tree_key#,
+				#tree_value#,
+				#tree_order#,
+				#html_class#
+			)
 		</insert>
 
 

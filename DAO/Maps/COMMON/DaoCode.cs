@@ -38,5 +38,10 @@ namespace DAO
 			return DaoManager.Instance.QueryForObject<CCode>("CODE.select_code_one", tree_code);
 		}
 
+		public void setCodeOne (CCode code)
+		{
+			DaoManager.Instance.Insert("CODE.insert_code_one", code);
+		}
+
 	}
 }

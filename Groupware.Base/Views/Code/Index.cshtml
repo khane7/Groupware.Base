@@ -4,6 +4,49 @@
 }
 
 <script type="text/javascript">
+
+	$(document).ready(function () {
+
+		$('#tree_type').val($('#sel-tree_type').val() );
+
+		$('#btn-add').click(function () {
+
+			if ($('#tree_code').val() == "") {
+				showAlert("validate", "상위코드를 선택해주세요.", false)
+				return;
+			}
+
+			addCode();
+		});
+
+		$('#btn-save').click(function () {
+
+			if ($('#tree_key').val() == "") {
+				showAlert("validate", "tree_key : Display TEXT.", false)
+				return;
+			}
+			if ($('#tree_value').val() == "") {
+				showAlert("validate", "tree_value : Hidden VALUE", false)
+				return;
+			}
+
+			$('#tree_code').attr('disabled', false);
+			$('#tree_level').attr('disabled', false);
+			$('#tree_order').attr('disabled', false);
+
+			goProcess("/Code/setCodeOne", "frm", "goPage('./?tree_type=" + getParameter("tree_type") + "');");
+
+			$('#tree_code').attr('disabled', true);
+			$('#tree_level').attr('disabled', true);
+			$('#tree_order').attr('disabled', true);
+		});
+
+		$('#btn-delete').click(function () {
+			showAlert("Confirm", "Delete????", true, "alert('ck');");
+		});
+	});
+
+
 	var addCode = function () {
 
 		var result = "";
@@ -44,27 +87,6 @@
 		$('#html_class').val("");
 	}
 
-
-	$(document).ready(function () {
-		$('#btn-add').click(function () {
-
-			if ($('#tree_code').val() == "" ) {
-				showAlert("validate", "상위코드를 선택해주세요.", false)
-				return;
-			}
-
-			addCode();
-		});
-
-		$('#btn-save').click(function () {
-			goProcess("/Tree/setTreeOne", "frm", "goPage('./');");
-		});
-
-		$('#btn-delete').click(function () {
-			showAlert("Confirm", "Delete????", true, "alert('ck');");
-		});
-	});
-
 	var setTreeCode = function ( tree_code ) {
 		goSimpleProcess("/Code/getCodeOne", { "tree_code": tree_code }, "getTreeCode(data);");
 	}
@@ -98,6 +120,7 @@
 			<div class="panel-body">
 
 				<form role="form" id="frm" name="frm">
+				<input type="hidden" id="tree_type" name="tree_type"  value="">
                     <fieldset>
                         <div class="form-group">
 							<label>tree_code</label>
@@ -117,7 +140,7 @@
 						</div>
 						<div class="form-group">
 							<label>tree_order</label>
-							<input class="form-control" placeholder="tree_order" id="tree_order" name="tree_order"  value="" >
+							<input class="form-control" placeholder="tree_order" id="tree_order" name="tree_order"  value="" disabled="">
 						</div>
 						<div class="form-group">
 							<label>html_class</label>
